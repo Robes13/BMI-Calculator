@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+</head>
+
+<body>
+    <!-- Creating forms element with an action, so we can process our inputs-->
+    <label for="weight">Indtast venligst din vægt i kg</label><br>
+    <input type="number" id="weight" name="weight" required><br>
+    <label for="height">Indtast venligst din højde i cm</label><br>
+    <input type="number" id="height" name="height" required><br>
+    <script src="BMI_Script.js"></script>
+    <button onclick="calculateBMI()">Beregn BMI</button>
+
+    <script>
+        // Calculating the input to a BMI value.
+        function calculateBMI() {
+            // Obtaining the weight and height variables
+            let weight = parseFloat(document.getElementById("weight").value);
+            let height = parseFloat(document.getElementById("height").value);
+            let bmi = (weight / ((height / 100) * (height / 100)))
+            if (bmi < 18.5) {
+                alert("Du er undervægtig");
+            }
+            else if (bmi < 24) {
+                alert("Du er normal vægtig");
+            }
+            else if (bmi < 30) {
+                alert("Du er lidt overvægtig");
+            }
+            else if (bmi > 30) {
+                alert("Du er meget overvægtig");
+            }
+        }
+    </script>
+</body>
+
+</html>
